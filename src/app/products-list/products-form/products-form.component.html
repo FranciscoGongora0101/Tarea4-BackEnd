@@ -1,0 +1,16 @@
+<form novalidate autocomplete="off" #form="ngForm" (submit)="onSubmit(form)">
+    <div class="form-group">
+        <label>Nombre del Producto</label>
+        <input class="form-control form-control-lg" placeholder="Nombre" name="productName"
+            #productName="ngModel" [(ngModel)]="service.formData.productName"
+            required [class.invalid]="productName.invalid && productName.touched">
+    </div>
+    <div class="form-group form-check">
+        <input type="checkbox" class="form-check-input" name="productDiscontinued"
+        #productDiscontinued="ngModel" [(ngModel)]="service.formData.discontinued">
+        <label>Descontinuado</label>
+    </div>
+    <div class="form-group">
+        <button class="btn btn-info btn-lg btn-block" type="submit" [disabled]="form.invalid">Agregar</button>
+    </div>
+</form>

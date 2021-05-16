@@ -1,0 +1,17 @@
+<form novalidate autocomplete="off" #form="ngForm" (submit)="onSubmit(form)">
+    <div class="form-group">
+        <label>Nombre del Empleado</label>
+        <input class="form-control form-control-lg" placeholder="Nombre" name="employeeName"
+            #employeeName="ngModel" [(ngModel)]="service.formData.Name"
+            required [class.invalid]="employeeName.invalid && employeeName.touched">
+    </div>
+    <div class="form-group">
+        <label>Apellido del empleado</label>
+        <input class="form-control form-control-lg" placeholder="Apellido" name="employeeFamilyName"
+            #employeeFamilyName="ngModel" [(ngModel)]="service.formData.FamilyName"
+            required [class.invalid]="employeeFamilyName.invalid && employeeFamilyName.touched">
+    </div>
+    <div class="form-group">
+        <button class="btn btn-info btn-lg btn-block" type="submit" [disabled]="form.invalid">Agregar</button>
+    </div>
+</form>
